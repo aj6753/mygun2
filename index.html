@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYGUN's Study Place</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <h1><span class="title-main">MYGUN'S</span>
+            <span class="title-sub">study place</span>
+        </h1>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="menu-item" data-page="timer">
+                    <img src="timer-icon.png" alt="Timer">
+                </div>
+                <div class="menu-item active" data-page="home">
+                    <img src="headphones-icon.png" alt="Home">
+                </div>
+                <div class="menu-item" data-page="calendar">
+                    <img src="calendar.png" alt="calendar">
+                </div>
+            </div>
+        </div>
+        <div id="home-page" class="page-content active">
+            <div class="sound-icons">
+                <div class="sound-item">
+                    <img src="path-to-your-rain-icon.png" alt="Rain" data-sound="rain.mp3">
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+                </div>
+                <div class="sound-item">
+                    <img src="path-to-your-water-icon.png" alt="Water" data-sound="water.mp3">
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+                </div>
+                <div class="sound-item">
+                    <img src="path-to-your-wind-icon.png" alt="Wind" data-sound="wind.mp3">
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+                </div>
+                <div class="sound-item">
+                    <img src="path-to-your-fire-icon.png" alt="Fire" data-sound="fire.mp3">
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+                </div>
+                <div class="sound-item">
+                    <img src="path-to-your-sea-icon.png" alt="Sea" data-sound="sea.mp3">
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+                </div>
+            </div>
+            <div id="media-container">
+                <input type="file" id="media-upload" accept="image/*, video/*">
+                <div id="media-preview">
+                  <div id="upload-icon">+</div>
+                </div>
+                <button id="remove-media" style="display: none;">Remove</button>
+              </div>
+            <div class="spotify-playlist">
+                <iframe style="border-radius:15px" src="https://open.spotify.com/embed/playlist/4f3KU4Xi68kKRw7bR6iL99?utm_source=generator?autoplay=1" width="100%" height="170" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div id="quote-container">
+                <p id="quote-text"></p>
+              </div>
+        </div>
+        <div id="timer-page" class="page-content">
+            <div class="timer-container">
+                <div class="timer-modes">
+                    <button class="timer-mode active" data-mode="pomodoro">Pomodoro</button>
+                    <button class="timer-mode" data-mode="shortBreak">Short Break</button>
+                    <button class="timer-mode" data-mode="longBreak">Long Break</button>
+                </div>
+                <div class="timer-settings">
+                    <input type="number" id="pomodoroTime" value="25" min="1" max="60"> min
+                    <input type="number" id="shortBreakTime" value="5" min="1" max="30"> min
+                    <input type="number" id="longBreakTime" value="15" min="1" max="60"> min
+                </div>
+                <div class="timer-display">25:00</div>
+                <div class="timer-controls">
+                    <button id="startTimer">Start</button>
+                    <button id="resetTimer">Reset</button>
+                </div>
+            </div>
+            <div class="spotify-playlist"></div>
+        </div>
+        
+        <div id="calendar-page" class="page-content">
+            <div class="calendar-container">
+                <div class="styled-calendar">
+                    <iframe src="https://embed.styledcalendar.com/#5HQIH3B1ld3CkE8OimHO" title="Styled Calendar" class="styled-calendar-container" data-cy="calendar-embed-iframe"></iframe>
+                </div>
+                <div class="sidebar">
+                    <div class="task-tracker">
+                        <h3>Task Tracker</h3>
+                        <form id="taskForm">
+                            <input type="text" id="taskName" placeholder="Task Name" required>
+                            <input type="text" id="taskSubject" placeholder="Subject" required>
+                            <input type="date" id="taskDeadline" required>
+                            <button type="submit">Add Task</button>
+                        </form>
+                        <div class="task-list-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Done</th>
+                                        <th>Task Name</th>
+                                        <th>Subject</th>
+                                        <th>Deadline</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="taskList"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="today-note">
+                        <h3>Today's Note</h3>
+                        <textarea id="todayNote" rows="5" placeholder="Write your note for today..."></textarea>
+                    </div>
+                    <div class="tool-box">
+                        <h3>Tool Box</h3>
+                        <form id="linkForm">
+                            <input type="text" id="linkName" placeholder="Link Name" required>
+                            <input type="url" id="linkUrl" placeholder="URL" required>
+                            <button type="submit">Add Link</button>
+                        </form>
+                        <ul id="linkList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="password-popup" class="popup">
+        <div class="popup-content">
+          <h2>Hewow, babyy! 💖</h2>
+          <input type="password" id="password-input" placeholder="Enter password">
+          <button id="submit-password">omkii</button>
+          <button id="play-audio">my message :></button>
+        </div>
+      </div>
+    <script src="script.js"></script>
+    <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+
+</body>
+</html>
