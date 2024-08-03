@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const passwordInput = document.getElementById('password-input');
         const submitButton = document.getElementById('submit-password');
         const playButton = document.getElementById('play-audio');
-        const audio = new Audio('record/maw.mp3'); // Replace with your audio file path
+        const audio = new Audio('record/mow.mp3'); // Replace with your audio file path
       
         // Show popup when page loads
         popup.style.display = 'flex';
